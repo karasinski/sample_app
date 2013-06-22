@@ -1,6 +1,7 @@
 class Micropost < ActiveRecord::Base
-  attr_accessible :content
+  attr_accessible :content, :image
   belongs_to :user
+  mount_uploader :image, ImageUploader
 
   validates :user_id, presence: true
   validates :content, presence: true, length: {maximum: 140}
